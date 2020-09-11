@@ -20,7 +20,7 @@ peso_dom = dolar * tasa
 print(peso_dom)
 #6
 celsius_grade = 32
-fahrenheit_grade = (celsius_grade * 9/5 + 32)
+fahrenheit_grade = (celsius_grade * 9/5 + 32  )
 print(fahrenheit_grade)
 #7
 nota1 = 90
