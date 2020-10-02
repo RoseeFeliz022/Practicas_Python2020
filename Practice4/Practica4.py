@@ -163,9 +163,10 @@ class Carro:
         self.galones_combustible = galones 
         self.color = color
         self.encendido = False
+    
 
     def enciende(self):
-        if galones > 0:
+        if self.galones_combustible > 0:
             print ("enciende ")
 
     def apagar(self):
@@ -179,4 +180,3 @@ class Carro:
 
 cAzul = Carro ("azul", "Toyota", 4, "gasolina", 12)
 print (cAzul)
-cAzul.encendido()
