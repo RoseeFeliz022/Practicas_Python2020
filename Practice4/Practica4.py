@@ -96,23 +96,31 @@
 # norberto.promedio(89, 94, 84, 96, 90)
 
 #3
-class Aritmetica:
-    def __init__(self, x, y):
-        self.number1 = x
-        self.number2 = y
+# class Aritmetica:
+#     def __init__(self, x, y):
+#         self.number1 = x
+#         self.number2 = y
 
-    def sumar(self):
-        suma = self.number1 + self.number2
-        return suma
+#     def sumar(self):
+#         self.suma = self.number1 + self.number2
+#         print (self.suma)
 
-    def restar(self):
-        resta = self.number1 - self.number2
-        return resta
+#     def restar(self):
+#         self.resta = self.number1 - self.number2
+#         print (self.resta)
 
-    def multiplicar(self):
-        multiplicación = self.number1 * self.number2
-        return multiplicación
-        
+#     def multiplicar(self):
+#         self.multiplicación = self.number1 * self.number2
+#         print (self.multiplicación)
+
+#     def dividir(self):
+#         self.división = self.number1 / self.number2
+#         print (self.división)
+
+
+# operaciones_basicas = Aritmetica(144, 12)
+# operaciones_basicas.dividir()
+
 #4
 # class Personaje:
 #     def __init__ (self, papel, escena, pelicula):
@@ -120,8 +128,9 @@ class Aritmetica:
 #         self.numero_escena = escena
 #         self.nombre_pelicula = pelicula
 
-#     def moverArriba ():
-#         pass
+#     def moverArriba (self, saltar):
+#         self.salto = saltar
+#         print ("Salto 1 metro")
 
 #     def moverAbajo ():
 #         pass
@@ -145,3 +154,29 @@ class Aritmetica:
 # koopa.moverDerecha()
 
 #5
+class Carro:
+    def __init__ (self, color, marca, puertas, combustible, galones):
+        self.marca = marca
+        self.cantidad_ruedas = 4
+        self.cantidad_puertas = puertas
+        self.tipo_combustible = combustible
+        self.galones_combustible = galones 
+        self.color = color
+        self.encendido = False
+
+    def enciende(self):
+        if galones > 0:
+            print ("enciende ")
+
+    def apagar(self):
+        pass
+
+    def acelera(self):
+        pass
+
+    def frena(self):
+        pass
+
+cAzul = Carro ("azul", "Toyota", 4, "gasolina", 12)
+print (cAzul)
+cAzul.encendido()
