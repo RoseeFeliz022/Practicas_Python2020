@@ -70,62 +70,66 @@
 # print(f"Se descuenta a su sueldo anual {sueldo_anual}: un isr de {isr}, de la ars es de {ars*12} y de la afp es de {afp*12}")
 
 #5
-def saludar():
-    print("Bienvenido al cajero automatico del Banco ABC")
+banco = int(input("Bienvenido. Elija el banco de su preferencia: 1. Banco ABC, 2. BanReservas "))
+servicio = int(input("Elija el servicio a realizar: 1. Retiro, 2. Transferencia "))
+while servicio !=3:
+    if servicio == 1:
+        carga1000 = 9000
+        carga500 = 9500
+        carga100 = 9900
 
-saludar()
-banco = int(input("Elija el banco: 1. Banco ABC, 2. BanReservas"))
-servicio = int(input("Ingrese el numero de la opcion deseada: 1. Retiro, 2. Transferencia"))
+        def sacar_dinero(cantidad):
+            global carga1000, carga500, carga100
+            if cantidad <= 10000:
+                de1000 = int(cantidad / 1000)
+                cantidad = cantidad % 1000
+                if de1000 >= carga1000:
+                    cantidad = cantidad + (de1000 - carga1000) * 1000
+                    de1000 = carga1000
+ 
+                de500 = int(cantidad / 500)
+                cantidad = cantidad % 500
+                if de500 >= carga500:
+                    cantidad = cantidad + (de500 - carga500) * 500
+                    de500 = carga500
+ 
+                de100 = int(cantidad / 100)
+                cantidad = cantidad % 100
+                if de100 >= carga100:
+                    cantidad = cantidad + (de100 - carga100) * 100
+                    de100 = carga100
+ 
+                if cantidad == 0:
+                    carga1000 = carga1000 - de1000
+                    carga500 = carga500 - de500
+                    carga100 = carga100 - de100
+                    return [de1000, de500, de100]
+                else:
+                   return [0, 0, 0]
+            else:
+                return [-1, -1, -1]
 
-# carga1000 = 9000
-# carga500 = 9500
-# carga100 = 9900
-     
-# def sacar_dinero(cantidad):
-#     global carga1000, carga500, carga100
-#     if cantidad <= 10000:
-#         de1000 = int(cantidad / 1000)
-#         cantidad = cantidad % 1000
-#         if de1000 >= carga1000: # Si hay suficientes billetes de 1000
-#             cantidad = cantidad + (de1000 - carga1000) * 1000
-#             de1000 = carga1000
- 
-#         de500 = int(cantidad / 500)
-#         cantidad = cantidad % 500
-#         if de500 >= carga500: # y hay suficientes billetes de 500
-#             cantidad = cantidad + (de500 - carga500) * 500
-#             de500 = carga500
- 
-#         de100 = int(cantidad / 100)
-#         cantidad = cantidad % 100
-#         if de100 >= carga100: # y hay suficientes billetes de 100
-#             cantidad = cantidad + (de100 - carga100) * 100
-#             de100 = carga100
- 
-#         # Si todo ha ido bien, la cantidad que resta por entregar es nula:
-#         if cantidad == 0: # Así que hacemos efectiva la extracción
-#             carga1000 = carga1000 - de1000
-#             carga500 = carga500 - de500
-#             carga100 = carga100 - de100
-#             return [de1000, de500, de100]
-#         else: # Y si no, devolvemos la lista con tres ceros:
-#             return [0, 0, 0]
-#     else:
-#         return [-1, -1, -1]
-
-# try:
-#     c = int(input('Ingrese el monto a retirar: '))
-#     resultado=sacar_dinero(c)
-#     if resultado==[0,0,0]:
-#         print ('No hay desglose de billetes')
-#     elif resultado==[-1,-1,-1]:
-#         print ('Excede el limite de retiro')
-#     else:
-#         print ('Billetes de 1000:', resultado[0])
-#         print ('Billetes de 500:', resultado[1])
-#         print ('Billetes de 100:', resultado[2])
-# except:
-#     print ('Importe incorrecto')
+        try:
+            c = int(input('Ingrese el monto a retirar: '))
+            resultado=sacar_dinero(c)
+            if resultado==[0,0,0]:
+                print ('No hay desglose de billetes')
+            elif resultado==[-1,-1,-1]:
+                print ('Excede el limite de retiro')
+            else:
+                print ('Billetes de 1000:', resultado[0])
+                print ('Billetes de 500:', resultado[1])
+                print ('Billetes de 100:', resultado[2])
+        except:
+            print ('Importe incorrecto')
+    elif servicio == 2:
+        transferencia = int(input("Digite el monto a transferir: "))
+        if transferencia <= 2000:
+            print (f"Ha transferido RD$ {transferencia} pesos. Su transferencia ha sido realizada con éxito")
+        else:
+            print ("Usted ha excedido el limte de transferencia (2000). Intentelo de nuevo.")
+    else:
+        print ("Gracias por preferirnos")
 
 
 
