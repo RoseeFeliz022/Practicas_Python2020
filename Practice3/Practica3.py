@@ -73,7 +73,7 @@
 #     print (duplicar)
 
 #8
-num = input("Ingrese un numero para ver su tabla")
+num = input("Ingrese un numero para ver su tabla: ")
 c = 6
 while c <=12:
     print(int(num) * c)
