@@ -73,11 +73,15 @@
 #     print (duplicar)
 
 #8
-num = input("Ingrese un numero para ver su tabla: ")
-c = 6
-while c <=12:
-    print(int(num) * c)
-    c += 6
-        
+def tablas (x, y):
+    for i in range (x, y + 1):
+        if i % 6 == 0:
+            print ("Table {}". format (i))
+            for k in range (1, 11):
+                print ("{} x {} = {}". format (i, k, i*k))
+            print ("")
+    
+
+tablas (6,12)
 
         
