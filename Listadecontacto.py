@@ -23,8 +23,9 @@ def insertar(p):
 def mostrar():
     with conn:
         cursor.execute(""" SELECT * FROM Contactos """)
-        r = cursor.fetchall()
-        print(r)
+        rows = cursor.fetchall()
+        for r in rows:
+            print(r)
 
 
 def buscar(a3):
